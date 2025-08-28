@@ -4,28 +4,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Reading Bowl Flashcards</title>
-
-<!-- PWA hooks (you already have these files) -->
 <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#2b6cb0" />
-
 <style>
-  :root{
-    --bg:#f6f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;
-    --accent:#2b6cb0;--accent2:#2563eb;--good:#16a34a;--bad:#dc2626;--chip:#e2e8f0
-  }
+  :root{--bg:#f6f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--accent:#2b6cb0;--accent2:#2563eb;--good:#16a34a;--bad:#dc2626;--chip:#e2e8f0}
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
   body{background:var(--bg);color:var(--ink)}
   .wrap{max-width:980px;margin:0 auto;padding:12px}
-
   header{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
   h1{font-size:1.1rem;margin:0}
-  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
   .btn{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;font-size:1rem}
   .btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
-
-  /* Menu */
   .grid{display:grid;gap:12px}
   .card{background:var(--card);border-radius:16px;box-shadow:0 8px 24px rgba(15,23,42,.06);padding:16px}
   .bookItem{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:#f9fafb;border:2px solid transparent;cursor:pointer}
@@ -33,22 +23,17 @@
   .numBadge{min-width:36px;height:36px;border-radius:10px;background:var(--chip);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent2)}
   .title{font-size:1.05rem}
   .hidden{display:none}
-
-  /* Quiz */
   .choices{display:grid;gap:10px;margin-top:12px}
-  .choice{background:#f1f5f9;border:3px solid transparent;border-radius:12px;padding:14px;cursor:pointer;font-size:1.05rem;min-height:52px;text-align:left}
-  .choice.correct{background:#ecfdf5;border-color:rgba(22,163,74,.55)}
-  .choice.incorrect{background:#fef2f2;border-color:rgba(220,38,38,.55)}
-  .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.95rem;margin-top:4px}
+  .choice{background:#f1f5f9;border:2px solid transparent;border-radius:12px;padding:12px;cursor:pointer}
+  .choice.correct{background:#ecfdf5;border-color:rgba(22,163,74,.3)}
+  .choice.incorrect{background:#fef2f2;border-color:rgba(220,38,38,.25)}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.95rem;margin-top:4px;gap:8px;flex-wrap:wrap}
   .progress{height:8px;background:#e6eefc;border-radius:6px;overflow:hidden;margin-top:8px}
   .progress>i{display:block;height:100%;background:var(--accent);width:0%}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .question{margin:.25rem 0;font-size:1.2rem}
-  .topline{display:flex;justify-content:space-between;align-items:center}
-
-  @media (max-width:480px){
-    .choice{padding:16px;font-size:1.1rem}
-  }
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{font-size:.9rem;padding:8px 12px;border-radius:999px;border:2px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer}
+  .pill.active{background:var(--accent);color:#fff}
 </style>
 </head>
 <body>
@@ -56,48 +41,47 @@
     <header>
       <h1>Reading Bowl Flashcards</h1>
       <div class="toolbar">
-        <button class="btn ghost" id="booksBtn" aria-label="Back to books">Books</button>
+        <button class="btn ghost" onclick="showMenu()" aria-label="Back to books">Books</button>
+        <!-- Study mode toggle -->
+        <button class="pill" id="orderBtn" aria-pressed="true" title="Toggle ordered/shuffled">Ordered</button>
       </div>
     </header>
 
     <!-- Book Menu -->
-    <section id="menuView" class="grid" aria-label="Choose a book">
+    <section id="menuView" class="grid">
       <div class="card">
         <h2 style="margin:0 0 8px 0">Choose a book</h2>
-        <div id="booksList" class="grid" role="list"></div>
+        <div id="booksList" class="grid"></div>
       </div>
     </section>
 
     <!-- Quiz View -->
-    <section id="quizView" class="hidden" aria-label="Quiz">
+    <section id="quizView" class="hidden">
       <div class="card">
-        <div class="topline">
-          <div class="meta" id="bookLabel" aria-live="polite"></div>
-          <div class="meta" id="score">Score: 0</div>
+        <div class="meta">
+          <div id="bookLabel" aria-live="polite"></div>
+          <div id="score">Score: 0</div>
         </div>
 
-        <h2 id="qText" class="question">Question</h2>
-        <div id="choices" class="choices" role="group" aria-label="Answer choices"></div>
+        <h2 id="qText" style="margin:.25rem 0 .25rem 0;font-size:1.2rem">Question</h2>
+        <div id="choices" class="choices"></div>
 
-        <div id="evidence" class="meta" style="display:none; margin-top:6px"></div>
+        <div id="evidence" class="meta" style="display:none;margin-top:6px"></div>
 
-        <div class="progress" aria-hidden="true"><i id="bar"></i></div>
-
-        <div class="controls">
+        <div class="progress"><i id="bar"></i></div>
+        <div class="row" style="margin-top:10px">
           <button class="btn" id="nextBtn">Next</button>
           <button class="btn ghost" id="showBtn">Show Answer</button>
-          <button class="btn ghost" id="shuffleBtn">Shuffle</button>
+          <button class="btn ghost" id="shuffleBtn" title="Reshuffle current deck">Shuffle Deck</button>
         </div>
       </div>
     </section>
   </div>
 
 <script>
-/* =======================
-   DATA (no hardcoded Duel deck here)
-   ======================= */
+/* ========= Data (books + runtime loader) ========= */
 const BOOKS = [
-  { id:1, title:"Duel", cards:[] },       // will be filled by JSON loader
+  { id:1, title:"Duel", cards:[] },   // Will be filled by fetch() below
   { id:2, title:"Book Two", cards:[] },
   { id:3, title:"Book Three", cards:[] },
   { id:4, title:"Book Four", cards:[] },
@@ -109,10 +93,22 @@ const BOOKS = [
   { id:10, title:"Book Ten", cards:[] }
 ];
 
-/* =======================
-   STATE / ELEMENTS
-   ======================= */
-let state = { bookIndex:0, order:[], pos:0, score:0, peeked:false };
+// Load Duel deck from external JSON file (place next to this HTML)
+async function loadDuel() {
+  try{
+    const res = await fetch('./book1_duel_cards.json?v=DUEL_FULL', { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    // Expect array of { q, choices[], aIndex, evidence }
+    if(Array.isArray(data)) BOOKS[0].cards = data;
+  }catch(err){
+    console.error('Failed to load book1_duel_cards.json', err);
+    // Leave cards empty; UI will show "No cards yet"
+  }
+}
+
+/* ========= State & Elements ========= */
+let state = { bookIndex:0, order:[], pos:0, score:0, peeked:false, ordered:true };
 
 const menuView = document.getElementById('menuView');
 const quizView = document.getElementById('quizView');
@@ -123,22 +119,9 @@ const bar = document.getElementById('bar');
 const scoreEl = document.getElementById('score');
 const bookLabel = document.getElementById('bookLabel');
 const evidenceEl = document.getElementById('evidence');
-const booksBtn = document.getElementById('booksBtn');
+const orderBtn = document.getElementById('orderBtn');
 
-/* =======================
-   HELPERS
-   ======================= */
-function shuffle(a){
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]] = [a[j],a[i]];
-  }
-}
-function percent(n, d){ return d ? Math.round((n/d)*100) : 0; }
-
-/* =======================
-   MENU
-   ======================= */
+/* ========= UI helpers ========= */
 function showMenu(){
   menuView.classList.remove('hidden');
   quizView.classList.add('hidden');
@@ -146,7 +129,6 @@ function showMenu(){
   BOOKS.forEach((b,i)=>{
     const item = document.createElement('button');
     item.className = 'bookItem';
-    item.setAttribute('role','listitem');
     item.setAttribute('aria-label','Open '+b.title);
     item.innerHTML = `<span class="numBadge">${i+1}</span><span class="title">${b.title}</span>`;
     item.addEventListener('click',()=> startBook(i));
@@ -154,25 +136,28 @@ function showMenu(){
   });
 }
 
-/* =======================
-   QUIZ FLOW
-   ======================= */
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+}
+
+/* ========= Quiz flow ========= */
 function startBook(i){
   const book = BOOKS[i];
-  if(!book.cards || book.cards.length===0){
-    alert('No cards yet for '+book.title);
-    return;
-  }
+  if(!book.cards || book.cards.length===0){ alert('No cards yet for '+book.title); return; }
+
   state.bookIndex = i;
   state.order = [...Array(book.cards.length).keys()];
-  shuffle(state.order);
+  if(!state.ordered) shuffle(state.order);
+
   state.pos = 0;
   state.score = 0;
   state.peeked = false;
 
   menuView.classList.add('hidden');
   quizView.classList.remove('hidden');
-
   render();
 }
 
@@ -187,42 +172,37 @@ function render(){
 
   bookLabel.textContent = `Book ${state.bookIndex+1}: ${book.title} — Card ${state.pos+1}/${state.order.length}`;
   qText.textContent = card.q;
+  choicesDiv.innerHTML='';
 
-  // Build shuffled choices and mark the correct one with a data flag
-  choicesDiv.innerHTML = '';
-  const correctText = card.choices[card.aIndex];
-  const opts = [...card.choices];
-  shuffle(opts);
-
-  opts.forEach((text) => {
-    const btn = document.createElement('button');
-    btn.className = 'choice';
-    btn.textContent = text;
-    btn.dataset.correct = String(text === correctText);
-    btn.onclick = () => onPick(btn, card);
+  const opts = card.choices.map((c,i)=>({i,c}));
+  shuffle(opts); // Always shuffle choice positions
+  opts.forEach(({i,c})=>{
+    const btn=document.createElement('button');
+    btn.className='choice'; btn.textContent=c;
+    btn.onclick=()=> onPick(i,btn,card);
     choicesDiv.appendChild(btn);
   });
 
-  scoreEl.textContent = 'Score: ' + state.score;
-  bar.style.width = percent(state.pos, state.order.length) + '%';
+  scoreEl.textContent='Score: '+state.score;
+  bar.style.width = Math.round(state.pos/state.order.length*100) + '%';
 }
 
-function onPick(btn, card){
+function onPick(choiceIndex, btn, card){
   const buttons = Array.from(choicesDiv.children);
-  buttons.forEach(b => b.disabled = true);
+  buttons.forEach(b=> b.disabled=true);
 
-  const isCorrect = (btn.dataset.correct === 'true');
-  if (isCorrect && !state.peeked) state.score++;
+  const correct = (choiceIndex===card.aIndex);
+  if (correct && !state.peeked) { state.score++; }
 
-  if (isCorrect){
+  if(correct){
     btn.classList.add('correct');
   } else {
     btn.classList.add('incorrect');
-    const correctBtn = buttons.find(b => b.dataset.correct === 'true');
-    if (correctBtn) correctBtn.classList.add('correct');
+    buttons.forEach(b=>{
+      if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct');
+    });
   }
-
-  scoreEl.textContent = 'Score: ' + state.score;
+  scoreEl.textContent='Score: '+state.score;
 
   if (card.evidence){
     evidenceEl.textContent = `Evidence: ${card.evidence}`;
@@ -230,81 +210,67 @@ function onPick(btn, card){
   }
 }
 
-/* =======================
-   CONTROLS
-   ======================= */
-document.getElementById('nextBtn').onclick = () => {
+/* ========= Controls ========= */
+document.getElementById('nextBtn').onclick=()=>{
   const book = BOOKS[state.bookIndex];
-  if (state.pos < state.order.length - 1) {
+  if(state.pos < state.order.length-1){
     state.pos++;
   } else {
     alert(`All done! Score: ${state.score}/${state.order.length}`);
-    shuffle(state.order);
-    state.pos = 0;
-    state.score = 0;
+    state.pos=0; state.score=0;
+    // When finishing, re-apply current study mode
+    state.order=[...Array(book.cards.length).keys()];
+    if(!state.ordered) shuffle(state.order);
   }
   render();
 };
 
-document.getElementById('showBtn').onclick = () => {
-  const buttons = Array.from(choicesDiv.children);
-  buttons.forEach(b => {
-    if (b.dataset.correct === 'true') b.classList.add('correct');
+document.getElementById('showBtn').onclick=()=>{
+  const book = BOOKS[state.bookIndex];
+  const idx=state.order[state.pos];
+  const card=book.cards[idx];
+
+  Array.from(choicesDiv.children).forEach(b=>{
+    if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct');
   });
+
   state.peeked = true;
 
-  const book = BOOKS[state.bookIndex];
-  const idx = state.order[state.pos];
-  const card = book.cards[idx];
   if (card.evidence){
     evidenceEl.textContent = `Evidence: ${card.evidence}`;
     evidenceEl.style.display = 'flex';
   }
 };
 
-document.getElementById('shuffleBtn').onclick = () => {
+document.getElementById('shuffleBtn').onclick=()=>{
+  const book = BOOKS[state.bookIndex];
+  state.order=[...Array(book.cards.length).keys()];
   shuffle(state.order);
-  state.pos = 0;
-  state.score = 0;
-  state.peeked = false;
-  render();
+  state.pos=0; state.score=0; state.peeked=false; render();
 };
 
-booksBtn.onclick = showMenu;
+// Toggle ordered/shuffled for next session
+orderBtn.onclick = () => {
+  state.ordered = !state.ordered;
+  orderBtn.textContent = state.ordered ? "Ordered" : "Shuffled";
+  orderBtn.classList.toggle('active', !state.ordered);
+  orderBtn.setAttribute('aria-pressed', String(state.ordered));
+  // If currently in a quiz, optionally re-seed order immediately:
+  if (!menuView.classList.contains('hidden')) return; // still in menu
+  // Rebuild order for current session as well:
+  const book = BOOKS[state.bookIndex];
+  state.order=[...Array(book.cards.length).keys()];
+  if(!state.ordered) shuffle(state.order);
+  state.pos=0; state.score=0; state.peeked=false; render();
+};
 
-/* =======================
-   LOAD EXTERNAL DUEL CARDS
-   ======================= */
-async function loadDuelCards() {
-  try {
-    // cache-busting query helps when a service worker is installed
-    const DECK_VERSION = 'v1';
-    const res = await fetch('./book1_duel_cards.json?v=' + DECK_VERSION, { cache: 'no-store' });
-    if (!res.ok) return; // silently skip if not present
-    const cards = await res.json();
-    if (Array.isArray(cards) && cards.length) {
-      BOOKS[0].cards = cards;
-      console.log(`Loaded Duel cards: ${cards.length}`);
-    }
-  } catch (e) {
-    console.warn('Could not load Duel cards:', e);
-  }
+/* ========= Service worker ========= */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=> navigator.serviceWorker.register('./sw.js'));
 }
 
-/* =======================
-   SERVICE WORKER (you already have sw.js)
-   ======================= */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(()=>{});
-  });
-}
-
-/* =======================
-   INIT
-   ======================= */
-showMenu();
-loadDuelCards();
+/* ========= Boot ========= */
+loadDuel().finally(showMenu);
 </script>
 </body>
 </html>
