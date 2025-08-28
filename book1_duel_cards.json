@@ -988,5 +988,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 110"
+  },
+   {
+    "q": "What was Lucy and GiGi’s grandmother’s name?",
+    "choices": [
+      "Barbara (Gran)",
+      "Margaret",
+      "Helen",
+      "Patricia"
+    ],
+    "aIndex": 0,
+    "evidence": "page 111"
+  },
+  {
+    "q": "What was Lucy and GiGi’s mother’s job?",
+    "choices": [
+      "A nurse",
+      "A teacher",
+      "A librarian",
+      "A cashier"
+    ],
+    "aIndex": 0,
+    "evidence": "page 115"
+  },
+  {
+    "q": "Where did Gran work?",
+    "choices": [
+      "At a hair salon",
+      "At a bakery",
+      "At a bookstore",
+      "At a flower shop"
+    ],
+    "aIndex": 0,
+    "evidence": "page 114"
+  },
+  {
+    "q": "What did Gran bring Lucy and GiGi when she comes over for dinner?",
+    "choices": [
+      "Hair products",
+      "Cookies",
+      "Books",
+      "Flowers"
+    ],
+    "aIndex": 0,
+    "evidence": "page 114"
+  },
+  {
+    "q": "What type of group were Lucy’s parents in before he died?",
+    "choices": [
+      "A singing group",
+      "A bowling league",
+      "A book club",
+      "A theater troupe"
+    ],
+    "aIndex": 0,
+    "evidence": "page 115"
+  },
+  {
+    "q": "What did Lucy do when Gran was asking GiGi about her grades at school?",
+    "choices": [
+      "She slammed cabinets and splashed a drink on GiGi",
+      "She ran to her room",
+      "She shouted at her mom",
+      "She left the house"
+    ],
+    "aIndex": 0,
+    "evidence": "page 118"
+  },
+  {
+    "q": "What did Lucy’s mom make for dinner when Gran comes over?",
+    "choices": [
+      "Spaghetti",
+      "Tacos",
+      "Chicken soup",
+      "Pizza"
+    ],
+    "aIndex": 0,
+    "evidence": "page 119"
+  },
+  {
+    "q": "What was GiGi’s real name?",
+    "choices": [
+      "Georgia",
+      "Genevieve",
+      "Giselle",
+      "Gloria"
+    ],
+    "aIndex": 0,
+    "evidence": "page 120"
+  },
+  {
+    "q": "When Gran went to Lucy’s room to check on her, what corny joke did she make?",
+    "choices": [
+      "She didn’t expect dinner AND a show",
+      "She thought the floor needed sweeping",
+      "She wanted to borrow homework",
+      "She said Lucy should join the circus"
+    ],
+    "aIndex": 0,
+    "evidence": "page 123"
+  },
+  {
+    "q": "What did Gran say was the best way to heal pain in your heart?",
+    "choices": [
+      "By being there for each other",
+      "By keeping busy",
+      "By resting more",
+      "By ignoring it"
+    ],
+    "aIndex": 0,
+    "evidence": "page 126"
+  },
+  {
+    "q": "When did GiGi make a card for Lucy?",
+    "choices": [
+      "When she had her tonsils out",
+      "When she broke her arm",
+      "On her birthday",
+      "Before her first fencing match"
+    ],
+    "aIndex": 0,
+    "evidence": "page 127"
+  },
+  {
+    "q": "In fencing, how is an attack made?",
+    "choices": [
+      "By extending your foil arm in a threatening manner",
+      "By yelling loudly",
+      "By stomping toward the opponent",
+      "By running in circles"
+    ],
+    "aIndex": 0,
+    "evidence": "page 129"
+  },
+  {
+    "q": "What was the name of GiGi’s Social Studies teacher?",
+    "choices": [
+      "Mr. Sweet",
+      "Mrs. Pearson",
+      "Mr. Madsen",
+      "Coach Leona"
+    ],
+    "aIndex": 0,
+    "evidence": "page 131"
+  },
+  {
+    "q": "What rumor did Nyella’s brother spread about Mr. Sweet?",
+    "choices": [
+      "That he used to be a pro wrestler",
+      "That he was a magician",
+      "That he lived in France",
+      "That he once won the lottery"
+    ],
+    "aIndex": 0,
+    "evidence": "page 131"
+  },
+  {
+    "q": "In what room of the school did Lucy secretly practice her fencing?",
+    "choices": [
+      "The choir room",
+      "The library",
+      "The cafeteria",
+      "The gym"
+    ],
+    "aIndex": 0,
+    "evidence": "page 133"
   }
 ]
