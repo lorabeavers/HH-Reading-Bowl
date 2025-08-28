@@ -1,4 +1,4 @@
-const CACHE = 'rb-cards-v1';
+const CACHE = 'rb-cards-v2';
 const ASSETS = ['./','./index.html','./manifest.json'];
 
 self.addEventListener('install', (e)=>{
