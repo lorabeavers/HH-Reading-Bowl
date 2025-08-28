@@ -163,5 +163,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 7"
+  },
+ {
+    "q": "Lucy is the only person Sasha knows who brought what on the first day of school?",
+    "choices": [
+      "Books",
+      "A skateboard",
+      "A bouquet of flowers",
+      "Her lunch tray from home"
+    ],
+    "aIndex": 0,
+    "evidence": "page 8"
+  },
+  {
+    "q": "Who was Lucy hoping to avoid on the first day of middle school?",
+    "choices": [
+      "GiGi",
+      "Sasha",
+      "Mrs. Jones",
+      "Damien Jo"
+    ],
+    "aIndex": 0,
+    "evidence": "page 10"
+  },
+  {
+    "q": "Who was GiGi?",
+    "choices": [
+      "Lucy’s older sister",
+      "A new student",
+      "The school librarian",
+      "The fencing coach"
+    ],
+    "aIndex": 0,
+    "evidence": "page 13"
+  },
+  {
+    "q": "Where did Lucy run into GiGi on the first day of school?",
+    "choices": [
+      "In the cafeteria",
+      "At the bus stop",
+      "In the choir room",
+      "In the library"
+    ],
+    "aIndex": 0,
+    "evidence": "page 13"
+  },
+  {
+    "q": "Why did GiGi tell Lucy she couldn’t sit with her?",
+    "choices": [
+      "It’s the 8th grade table",
+      "She didn’t bring lunch",
+      "Lucy was late",
+      "The table was full"
+    ],
+    "aIndex": 0,
+    "evidence": "page 13"
+  },
+  {
+    "q": "Where did GiGi tell Lucy to send her a postcard from in the cafeteria on the first day of school?",
+    "choices": [
+      "Dorkville",
+      "Coolville",
+      "The library",
+      "Sunny’s Ice Cream"
+    ],
+    "aIndex": 0,
+    "evidence": "page 14"
+  },
+  {
+    "q": "What did GiGi do to Lucy in the cafeteria on the first day of school?",
+    "choices": [
+      "She trips her",
+      "She takes her seat",
+      "She spills juice on her",
+      "She hides her backpack"
+    ],
+    "aIndex": 0,
+    "evidence": "page 15"
+  },
+  {
+    "q": "What did GiGi say to Lucy as she tripped her in the cafeteria?",
+    "choices": [
+      "Enjoy the trip",
+      "Watch your step",
+      "Oops, my bad",
+      "Walk faster, slowpoke"
+    ],
+    "aIndex": 0,
+    "evidence": "page 14"
+  },
+  {
+    "q": "As Lucy is falling after GiGi trips her, what was Lucy thinking about?",
+    "choices": [
+      "GiGi being mean when they were younger—ripping her doll, pushing her off the couch, scaring her, and saying she wished she was never born",
+      "How to find her next class",
+      "The lunch menu",
+      "A joke Sasha told earlier"
+    ],
+    "aIndex": 0,
+    "evidence": "pages 17-18"
+  },
+  {
+    "q": "What did GiGi say to Lucy after she tripped her?",
+    "choices": [
+      "Don’t 6th graders even know how to walk?",
+      "You should pay attention",
+      "That table is reserved",
+      "We’re going to be late"
+    ],
+    "aIndex": 0,
+    "evidence": "page 20"
+  },
+  {
+    "q": "What did Lucy pull out of GiGi’s bag after she was tripped in the cafeteria?",
+    "choices": [
+      "Her fencing sword",
+      "Her math notebook",
+      "A phone",
+      "A diary"
+    ],
+    "aIndex": 0,
+    "evidence": "page 21"
+  },
+  {
+    "q": "What did Lucy say to GiGi after being tripped in the cafeteria?",
+    "choices": [
+      "I challenge you to a duel!",
+      "Give that back!",
+      "Leave me alone!",
+      "You’re in trouble!"
+    ],
+    "aIndex": 0,
+    "evidence": "page 22"
+  },
+  {
+    "q": "GiGi said fencers don’t have duels—they have what?",
+    "choices": [
+      "Bouts",
+      "Matches",
+      "Rounds",
+      "Challenges"
+    ],
+    "aIndex": 0,
+    "evidence": "page 26"
+  },
+  {
+    "q": "What happened after Lucy and GiGi argued in the cafeteria?",
+    "choices": [
+      "Both were sent to the principal’s office",
+      "Lucy was sent home",
+      "GiGi was suspended for a week",
+      "They apologized immediately"
+    ],
+    "aIndex": 0,
+    "evidence": "page 27"
+  },
+  {
+    "q": "What was the blade action performed before the start of a bout called?",
+    "choices": [
+      "The Salute",
+      "The Bow",
+      "The Tap",
+      "The Wave"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
   }
 ]
