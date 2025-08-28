@@ -1483,5 +1483,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 200"
+  },
+   {
+    "q": "What was the name of the ice cream shop they go to?",
+    "choices": [
+      "Sunny’s Ice Cream",
+      "Frosty’s Scoop Shop",
+      "Sweet Scoops",
+      "The Dairy Barn"
+    ],
+    "aIndex": 0,
+    "evidence": "page 201"
+  },
+  {
+    "q": "In fencing, how many types of binds are there?",
+    "choices": [
+      "Four main types",
+      "Two types",
+      "Three main types",
+      "Six common types"
+    ],
+    "aIndex": 0,
+    "evidence": "page 207"
+  },
+  {
+    "q": "On the morning of the duel, what did GiGi offer to Lucy?",
+    "choices": [
+      "Her old fencing gear that will fit her just right",
+      "Her breakfast",
+      "Her practice notes",
+      "A brand‑new mask"
+    ],
+    "aIndex": 0,
+    "evidence": "page 211"
+  },
+  {
+    "q": "What did Lucy overhear Maddie saying?",
+    "choices": [
+      "That she thinks she is a better fencer than GiGi",
+      "That GiGi should quit the team",
+      "That Lucy will forfeit the bout",
+      "That the bets are rigged"
+    ],
+    "aIndex": 0,
+    "evidence": "page 214"
+  },
+  {
+    "q": "In fencing, what command instructs the fencers to cease fighting?",
+    "choices": [
+      "A halt",
+      "Allez",
+      "En garde",
+      "Time out"
+    ],
+    "aIndex": 0,
+    "evidence": "page 217"
+  },
+  {
+    "q": "What did the t‑shirts made for the duel say?",
+    "choices": [
+      "Blood Bath",
+      "Final Bout",
+      "Sister Showdown",
+      "Duel Day"
+    ],
+    "aIndex": 0,
+    "evidence": "page 219"
+  },
+  {
+    "q": "When Lucy’s mom couldn’t get out of bed after their dad died, what did Lucy and GiGi do?",
+    "choices": [
+      "Tried to make spaghetti by putting the noodles and sauce in the pot at the same time",
+      "Made sandwiches for dinner",
+      "Ordered pizza for everyone",
+      "Ate cereal and milk"
+    ],
+    "aIndex": 0,
+    "evidence": "page 226"
+  },
+  {
+    "q": "When Lucy and GiGi tried to make spaghetti, what happened?",
+    "choices": [
+      "They burned the bottom of the pot and hid it in the garbage",
+      "They overcooked it but still ate it",
+      "They spilled the sauce all over the stove",
+      "They forgot the salt and it tasted bland"
+    ],
+    "aIndex": 0,
+    "evidence": "page 226"
+  },
+  {
+    "q": "When Lucy and GiGi saw the crowd gathered to watch their duel, what question did they each think?",
+    "choices": [
+      "What are we doing?",
+      "Who will win?",
+      "Where is Coach?",
+      "Is Mom watching?"
+    ],
+    "aIndex": 0,
+    "evidence": "page 229"
+  },
+  {
+    "q": "Who showed up at school to see Lucy and GiGi duel?",
+    "choices": [
+      "Their mom",
+      "Coach Leona",
+      "Mr. Sweet",
+      "Principal Olney"
+    ],
+    "aIndex": 0,
+    "evidence": "page 233"
+  },
+  {
+    "q": "What did Lucy say their family feels like?",
+    "choices": [
+      "A puzzle missing a piece",
+      "A team without a coach",
+      "A book with a missing chapter",
+      "A song without a chorus"
+    ],
+    "aIndex": 0,
+    "evidence": "page 239"
+  },
+  {
+    "q": "After their mom showed up to the duel, who else comes to school?",
+    "choices": [
+      "Gran",
+      "Their dad’s friend",
+      "Aunt May",
+      "A neighbor"
+    ],
+    "aIndex": 0,
+    "evidence": "page 243"
+  },
+  {
+    "q": "Why did Gran show up at the duel?",
+    "choices": [
+      "Their mom called her for backup",
+      "She came to deliver lunch",
+      "She had a salon appointment nearby",
+      "She heard a rumor about the bout"
+    ],
+    "aIndex": 0,
+    "evidence": "page 243"
+  },
+  {
+    "q": "In fencing, what is one of the most common attacking techniques?",
+    "choices": [
+      "The lunge",
+      "The parry",
+      "The bind",
+      "The salute"
+    ],
+    "aIndex": 0,
+    "evidence": "page 245"
+  },
+  {
+    "q": "In fencing, what is the vest called?",
+    "choices": [
+      "Lame (La‑may)",
+      "Cuirass",
+      "Tabard",
+      "Gambeson"
+    ],
+    "aIndex": 0,
+    "evidence": "page 253"
   }
 ]
