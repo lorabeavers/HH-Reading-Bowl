@@ -30,10 +30,26 @@
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.95rem;margin-top:4px;gap:8px;flex-wrap:wrap}
   .progress{height:8px;background:#e6eefc;border-radius:6px;overflow:hidden;margin-top:8px}
   .progress>i{display:block;height:100%;background:var(--accent);width:0%}
-  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
-  .row{display:flex;gap:8px;flex-wrap:wrap}
-  .pill{font-size:.9rem;padding:8px 12px;border-radius:999px;border:2px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer}
-  .pill.active{background:var(--accent);color:#fff}
+  .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+  /* Switch */
+  .switch{
+    display:inline-flex; align-items:center; gap:.5rem; user-select:none;
+    font-size:.95rem; color:var(--muted);
+  }
+  .switch input{display:none}
+  .track{
+    width:44px; height:24px; border-radius:999px; background:#e5e7eb; position:relative; border:2px solid #d1d5db;
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .thumb{
+    position:absolute; top:50%; left:2px; transform:translateY(-50%);
+    width:18px; height:18px; border-radius:999px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.15);
+    transition:left .2s ease;
+  }
+  input:checked + .track{ background:#c7d2fe; border-color:#93c5fd }
+  input:checked + .track .thumb{ left:22px }
+  .modeLabel{font-weight:600; color:var(--accent)}
 </style>
 </head>
 <body>
@@ -42,8 +58,13 @@
       <h1>Reading Bowl Flashcards</h1>
       <div class="toolbar">
         <button class="btn ghost" onclick="showMenu()" aria-label="Back to books">Books</button>
-        <!-- Study mode toggle -->
-        <button class="pill" id="orderBtn" aria-pressed="true" title="Toggle ordered/shuffled">Ordered</button>
+
+        <!-- Study mode switch: Ordered (off) / Shuffled (on) -->
+        <label class="switch" for="switchShuffle">
+          <span class="modeLabel" id="modeText">Ordered</span>
+          <input type="checkbox" id="switchShuffle" role="switch" aria-checked="false" aria-label="Shuffled mode">
+          <span class="track"><i class="thumb"></i></span>
+        </label>
       </div>
     </header>
 
@@ -69,19 +90,19 @@
         <div id="evidence" class="meta" style="display:none;margin-top:6px"></div>
 
         <div class="progress"><i id="bar"></i></div>
-        <div class="row" style="margin-top:10px">
+        <div style="display:flex;gap:8px;margin-top:10px">
           <button class="btn" id="nextBtn">Next</button>
           <button class="btn ghost" id="showBtn">Show Answer</button>
-          <button class="btn ghost" id="shuffleBtn" title="Reshuffle current deck">Shuffle Deck</button>
+          <!-- (Shuffle Deck button removed as requested) -->
         </div>
       </div>
     </section>
   </div>
 
 <script>
-/* ========= Data (books + runtime loader) ========= */
+/* ========= Data ========= */
 const BOOKS = [
-  { id:1, title:"Duel", cards:[] },   // Will be filled by fetch() below
+  { id:1, title:"Duel", cards:[] },   // Filled via fetch below
   { id:2, title:"Book Two", cards:[] },
   { id:3, title:"Book Three", cards:[] },
   { id:4, title:"Book Four", cards:[] },
@@ -93,17 +114,14 @@ const BOOKS = [
   { id:10, title:"Book Ten", cards:[] }
 ];
 
-// Load Duel deck from external JSON file (place next to this HTML)
 async function loadDuel() {
   try{
     const res = await fetch('./book1_duel_cards.json?v=DUEL_FULL', { cache: 'no-store' });
     if(!res.ok) throw new Error('HTTP '+res.status);
     const data = await res.json();
-    // Expect array of { q, choices[], aIndex, evidence }
     if(Array.isArray(data)) BOOKS[0].cards = data;
   }catch(err){
     console.error('Failed to load book1_duel_cards.json', err);
-    // Leave cards empty; UI will show "No cards yet"
   }
 }
 
@@ -119,9 +137,11 @@ const bar = document.getElementById('bar');
 const scoreEl = document.getElementById('score');
 const bookLabel = document.getElementById('bookLabel');
 const evidenceEl = document.getElementById('evidence');
-const orderBtn = document.getElementById('orderBtn');
 
-/* ========= UI helpers ========= */
+const switchShuffle = document.getElementById('switchShuffle');
+const modeText = document.getElementById('modeText');
+
+/* ========= Helpers ========= */
 function showMenu(){
   menuView.classList.remove('hidden');
   quizView.classList.add('hidden');
@@ -218,7 +238,7 @@ document.getElementById('nextBtn').onclick=()=>{
   } else {
     alert(`All done! Score: ${state.score}/${state.order.length}`);
     state.pos=0; state.score=0;
-    // When finishing, re-apply current study mode
+    // Re-seed based on current mode
     state.order=[...Array(book.cards.length).keys()];
     if(!state.ordered) shuffle(state.order);
   }
@@ -242,29 +262,22 @@ document.getElementById('showBtn').onclick=()=>{
   }
 };
 
-document.getElementById('shuffleBtn').onclick=()=>{
-  const book = BOOKS[state.bookIndex];
-  state.order=[...Array(book.cards.length).keys()];
-  shuffle(state.order);
-  state.pos=0; state.score=0; state.peeked=false; render();
-};
+/* ========= Switch behavior ========= */
+// Off = Ordered; On = Shuffled
+switchShuffle.addEventListener('change', ()=>{
+  state.ordered = !switchShuffle.checked ? true : false;
+  switchShuffle.setAttribute('aria-checked', switchShuffle.checked ? 'true' : 'false');
+  modeText.textContent = switchShuffle.checked ? 'Shuffled' : 'Ordered';
 
-// Toggle ordered/shuffled for next session
-orderBtn.onclick = () => {
-  state.ordered = !state.ordered;
-  orderBtn.textContent = state.ordered ? "Ordered" : "Shuffled";
-  orderBtn.classList.toggle('active', !state.ordered);
-  orderBtn.setAttribute('aria-pressed', String(state.ordered));
-  // If currently in a quiz, optionally re-seed order immediately:
+  // If in a quiz, reseed immediately in the new mode
   if (!menuView.classList.contains('hidden')) return; // still in menu
-  // Rebuild order for current session as well:
   const book = BOOKS[state.bookIndex];
   state.order=[...Array(book.cards.length).keys()];
   if(!state.ordered) shuffle(state.order);
   state.pos=0; state.score=0; state.peeked=false; render();
-};
+});
 
-/* ========= Service worker ========= */
+/* ========= PWA ========= */
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=> navigator.serviceWorker.register('./sw.js'));
 }
