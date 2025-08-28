@@ -1648,5 +1648,159 @@
     ],
     "aIndex": 0,
     "evidence": "page 253"
+  },
+   {
+    "q": "What happens when the tip of the fencing blade makes contact with the lame?",
+    "choices": [
+      "It sends a signal to the box that you’ve scored",
+      "It breaks the blade",
+      "It ends the match immediately",
+      "It shocks the fencer"
+    ],
+    "aIndex": 0,
+    "evidence": "page 253"
+  },
+  {
+    "q": "What did Coach Leona call GiGi right before the duel?",
+    "choices": [
+      "Captain",
+      "Champion",
+      "Leader",
+      "Star"
+    ],
+    "aIndex": 0,
+    "evidence": "page 255"
+  },
+  {
+    "q": "What spot on the fencing team was Lucy trying out for?",
+    "choices": [
+      "The second alternate spot",
+      "The captain",
+      "First alternate",
+      "The starter position"
+    ],
+    "aIndex": 0,
+    "evidence": "page 255"
+  },
+  {
+    "q": "Even though Lucy and GiGi scored the last point at the same time, why did GiGi win?",
+    "choices": [
+      "She had the right-of-way",
+      "She scored first earlier",
+      "She had more fans",
+      "She was older"
+    ],
+    "aIndex": 0,
+    "evidence": "page 285"
+  },
+  {
+    "q": "What was the school’s Fall play?",
+    "choices": [
+      "The Mask of Zorro",
+      "Romeo and Juliet",
+      "The Wizard of Oz",
+      "Annie"
+    ],
+    "aIndex": 0,
+    "evidence": "page 287"
+  },
+  {
+    "q": "What part in the Fall play was Sasha going to try out for?",
+    "choices": [
+      "Zorro",
+      "The villain",
+      "Lucy",
+      "Gran"
+    ],
+    "aIndex": 0,
+    "evidence": "page 287"
+  },
+  {
+    "q": "What did Maddie invite GiGi to play after the duel?",
+    "choices": [
+      "Voice of The Wind 2",
+      "Chess",
+      "The Mask of Zorro",
+      "Cards"
+    ],
+    "aIndex": 0,
+    "evidence": "page 290"
+  },
+  {
+    "q": "In medieval times, what did public gathering spaces ask guests to do?",
+    "choices": [
+      "Leave their weapons outside",
+      "Pay a fee",
+      "Wear a cloak",
+      "Stand silently"
+    ],
+    "aIndex": 0,
+    "evidence": "page 295"
+  },
+  {
+    "q": "What move did GiGi use to win the duel?",
+    "choices": [
+      "The Flick",
+      "The lunge",
+      "The bind",
+      "The riposte"
+    ],
+    "aIndex": 0,
+    "evidence": "page 297"
+  },
+  {
+    "q": "What was the last fencing move their dad taught GiGi?",
+    "choices": [
+      "The Flick",
+      "The parry",
+      "The salute",
+      "The retreat"
+    ],
+    "aIndex": 0,
+    "evidence": "page 298"
+  },
+  {
+    "q": "What did their dad tell GiGi about the move, the flick?",
+    "choices": [
+      "It was her secret move if she ever needed to fence Lucy one day",
+      "It was too advanced for her",
+      "It should never be used",
+      "It was for tournaments only"
+    ],
+    "aIndex": 0,
+    "evidence": "page 298"
+  },
+  {
+    "q": "What move did their dad teach Lucy to use on GiGi one day?",
+    "choices": [
+      "Extend her arm a split second before she drops her body",
+      "Use a faster retreat",
+      "Always lunge first",
+      "Switch hands"
+    ],
+    "aIndex": 0,
+    "evidence": "page 300"
+  },
+  {
+    "q": "How did Lucy hide their dad’s fencing book from GiGi?",
+    "choices": [
+      "She put a fake book jacket on it",
+      "She buried it in the yard",
+      "She gave it to Sasha",
+      "She locked it in her locker"
+    ],
+    "aIndex": 0,
+    "evidence": "page 302"
+  },
+  {
+    "q": "Who was the inscription in their dad’s fencing book written to?",
+    "choices": [
+      "Georgia",
+      "Lucy",
+      "Sasha",
+      "Gran"
+    ],
+    "aIndex": 0,
+    "evidence": "page 302"
   }
 ]
