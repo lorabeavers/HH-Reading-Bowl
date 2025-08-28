@@ -658,5 +658,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 57"
+  },
+  {
+    "q": "Why did Lucy’s dad teach her to get her arm out first when fencing?",
+    "choices": [
+      "To establish right-of-way",
+      "To make the blade look longer",
+      "To distract the opponent with movement",
+      "To avoid stepping past the en garde line"
+    ],
+    "aIndex": 0,
+    "evidence": "page 59"
+  },
+  {
+    "q": "Where did Lucy’s dad teach her the target is in foil?",
+    "choices": [
+      "You can hit the front and the back",
+      "Only the arms and legs",
+      "Only the mask and gloves",
+      "Anywhere above the knees"
+    ],
+    "aIndex": 0,
+    "evidence": "page 60"
+  },
+  {
+    "q": "When you parry in fencing, it’s like your blade is saying what?",
+    "choices": [
+      "“Oh, no you don’t!”",
+      "“Touché!”",
+      "“Point for me!”",
+      "“Charge!”"
+    ],
+    "aIndex": 0,
+    "evidence": "page 62"
+  },
+  {
+    "q": "What happened when Lucy was just starting to get the hang of fencing?",
+    "choices": [
+      "Her dad got sick",
+      "She switched to a different sport",
+      "She broke her mask",
+      "Her coach moved away"
+    ],
+    "aIndex": 0,
+    "evidence": "page 65"
+  },
+  {
+    "q": "What do the fencing referees say that gives fencers one final opportunity to suspend the match?",
+    "choices": [
+      "“Ready?”",
+      "“En garde!”",
+      "“Allez!”",
+      "“Fence!”"
+    ],
+    "aIndex": 0,
+    "evidence": "page 67"
+  },
+  {
+    "q": "What did GiGi’s friends think she is the best at?",
+    "choices": [
+      "Everything",
+      "Math",
+      "Cooking",
+      "Singing"
+    ],
+    "aIndex": 0,
+    "evidence": "page 69"
+  },
+  {
+    "q": "What was funny about the shirt Lill sewed in Life Skills class last year?",
+    "choices": [
+      "It had 4 armholes",
+      "It had no neckline",
+      "It was sewn inside out",
+      "It had sleeves of different lengths"
+    ],
+    "aIndex": 0,
+    "evidence": "page 69"
+  },
+  {
+    "q": "What did Cam and Daniel do to get suspended?",
+    "choices": [
+      "They messed up the school sign to say Butt Middle School",
+      "They skipped a week of classes",
+      "They started a food fight",
+      "They painted the gym floor"
+    ],
+    "aIndex": 0,
+    "evidence": "page 70"
+  },
+  {
+    "q": "What was the name of the crackers that Maddie’s dad buys?",
+    "choices": [
+      "Wacky Cracks",
+      "Nutty Squares",
+      "Crispy Crunchers",
+      "Crackling Crisps"
+    ],
+    "aIndex": 0,
+    "evidence": "page 71"
+  },
+  {
+    "q": "What did Maddie say about living in two houses?",
+    "choices": [
+      "She likes having her own bathroom at her dad’s house",
+      "She dislikes packing every weekend",
+      "She prefers the house with the bigger yard",
+      "She wishes both houses had pets"
+    ],
+    "aIndex": 0,
+    "evidence": "page 71"
+  },
+  {
+    "q": "Why did Maddie want to show her friends her room?",
+    "choices": [
+      "She picked out the paint color and all the new furniture",
+      "She won a decorating contest",
+      "She built a loft bed by herself",
+      "She has posters signed by a famous singer"
+    ],
+    "aIndex": 0,
+    "evidence": "page 72"
+  },
+  {
+    "q": "Why did GiGi think it would be nice to have two houses?",
+    "choices": [
+      "She wouldn’t have to deal with her mom every day",
+      "She could decorate two rooms",
+      "She could have two sets of friends",
+      "She would get double the allowance"
+    ],
+    "aIndex": 0,
+    "evidence": "page 72"
+  },
+  {
+    "q": "GiGi’s dad used to always say the apprentice has become what?",
+    "choices": [
+      "The Master",
+      "The Teacher",
+      "The Captain",
+      "The Champion"
+    ],
+    "aIndex": 0,
+    "evidence": "page 73"
+  },
+  {
+    "q": "What was GiGi and Lucy’s dad’s name?",
+    "choices": [
+      "George",
+      "Michael",
+      "Robert",
+      "David"
+    ],
+    "aIndex": 0,
+    "evidence": "page 75"
+  },
+  {
+    "q": "In Lucy’s first fencing lesson with her dad, he taught her that fencing is like a what?",
+    "choices": [
+      "A dance",
+      "A puzzle",
+      "A race",
+      "A song"
+    ],
+    "aIndex": 0,
+    "evidence": "page 77"
   }
 ]
