@@ -328,5 +328,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 29"
+  },
+ {
+    "q": "The salute is an action performed to acknowledge who?",
+    "choices": [
+      "Your opponent, referee and judges",
+      "The audience",
+      "Your coach and teammates",
+      "The timekeeper and announcer"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
+  },
+  {
+    "q": "What does the salute indicate?",
+    "choices": [
+      "Respect and good sportsmanship",
+      "A victory celebration",
+      "The start of a timeout",
+      "A request for substitution"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
+  },
+  {
+    "q": "What motion is used for the salute?",
+    "choices": [
+      "A sweeping motion across the face or from the face down in a counterclockwise motion in front of the body",
+      "A quick bow at the waist",
+      "Tapping blades three times",
+      "Raising your mask hand straight up"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
+  },
+  {
+    "q": "Not performing a salute is a sign of what?",
+    "choices": [
+      "Disrespect",
+      "Exhaustion",
+      "Nervousness",
+      "Injury"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
+  },
+  {
+    "q": "A salute signifies an agreement between opponents much like what?",
+    "choices": [
+      "The shaking of hands",
+      "Signing a contract",
+      "A high‑five",
+      "A formal bow"
+    ],
+    "aIndex": 0,
+    "evidence": "page 29"
+  },
+  {
+    "q": "What color was the door to the principal’s office?",
+    "choices": [
+      "Green",
+      "Blue",
+      "Red",
+      "Brown"
+    ],
+    "aIndex": 0,
+    "evidence": "page 30"
+  },
+  {
+    "q": "Before Lucy and GiGi saw the principal, who did they have to wait on?",
+    "choices": [
+      "Their mother to arrive",
+      "The principal to return from lunch",
+      "The school counselor",
+      "Coach Leona"
+    ],
+    "aIndex": 0,
+    "evidence": "page 32"
+  },
+  {
+    "q": "Why did GiGi think Lucy read her diary?",
+    "choices": [
+      "It wasn’t where she left it, and there were scratch marks from trying to pick the lock",
+      "Several pages were missing",
+      "Lucy admitted she skimmed it",
+      "Maddie said she saw Lucy reading it"
+    ],
+    "aIndex": 0,
+    "evidence": "page 34"
+  },
+  {
+    "q": "What was the Principal’s name?",
+    "choices": [
+      "Principal Olney",
+      "Principal Carter",
+      "Principal Green",
+      "Principal Smith"
+    ],
+    "aIndex": 0,
+    "evidence": "page 39"
+  },
+  {
+    "q": "What was the name of GiGi and Lucy’s mother?",
+    "choices": [
+      "Mrs. Jones",
+      "Mrs. Smith",
+      "Ms. Pearson",
+      "Mrs. Green"
+    ],
+    "aIndex": 0,
+    "evidence": "page 37"
+  },
+  {
+    "q": "Where did GiGi and Lucy’s mother work?",
+    "choices": [
+      "The hospital",
+      "The salon",
+      "The middle school",
+      "The library"
+    ],
+    "aIndex": 0,
+    "evidence": "page 37"
+  },
+  {
+    "q": "What did GiGi wish when she was sitting in the principal’s office?",
+    "choices": [
+      "That she was invisible",
+      "That she could go home early",
+      "That she was team captain",
+      "That Lucy would apologize"
+    ],
+    "aIndex": 0,
+    "evidence": "page 37"
+  },
+  {
+    "q": "Their mother told Principal Olney that the girls have been having issues getting along since when?",
+    "choices": [
+      "Their father passed away",
+      "They moved neighborhoods",
+      "They started middle school",
+      "They joined the fencing team"
+    ],
+    "aIndex": 0,
+    "evidence": "page 39"
+  },
+  {
+    "q": "What did Butler Middle School have strict rules about?",
+    "choices": [
+      "Bullying",
+      "Chewing gum",
+      "Running in the halls",
+      "Dress code violations"
+    ],
+    "aIndex": 0,
+    "evidence": "page 41"
+  },
+  {
+    "q": "According to the Athletic Code of Conduct, what should GiGi’s punishment be for the cafeteria fight?",
+    "choices": [
+      "She should be kicked off the team for having her foil in the cafeteria",
+      "She should get detention only",
+      "She should apologize in writing",
+      "She should lose lunch privileges for a week"
+    ],
+    "aIndex": 0,
+    "evidence": "page 42"
   }
 ]
