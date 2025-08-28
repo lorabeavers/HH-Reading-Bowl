@@ -1,90 +1,167 @@
 [
-  {
-    "q": "In the book Duel, what were the three weapons in the combat sport of fencing?",
+ {
+    "q": "What were the three weapons in the combat sport of fencing?",
     "choices": [
-      "Foil, Epee and Sabre",
-      "Foil, Rapier and Sabre",
-      "Sabre, Cutlass and Broadsword",
-      "Épée, Rapier and Dagger"
+      "Foil, Épée, Sabre",
+      "Rapier, Cutlass, Scimitar",
+      "Sword, Dagger, Pike",
+      "Foil, Épée, Longsword"
     ],
     "aIndex": 0,
-    "evidence": "p.1"
+    "evidence": "page 1"
   },
   {
-    "q": "In the book Duel, what must you first learn as you begin your foil training?",
+    "q": "What must you first learn as you begin your foil training?",
     "choices": [
       "Right-of-way",
-      "Priority (who attacked second)",
-      "Simultaneous (both get the point)",
-      "Initiative (defender decides)"
+      "How to grip the blade",
+      "Advanced footwork patterns",
+      "Equipment maintenance"
     ],
     "aIndex": 0,
-    "evidence": "p.1"
+    "evidence": "page 1"
   },
   {
-    "q": "In the book Duel, what is right-of-way in fencing?",
+    "q": "What is right-of-way in fencing?",
     "choices": [
       "The first person to establish a valid threat to their opponent’s target area",
-      "Priority (who attacked second)",
-      "Simultaneous (both get the point)",
-      "Initiative (defender decides)"
+      "Who moves first off the starting line",
+      "Whose blade is longer",
+      "Who steps over the boundary first"
     ],
     "aIndex": 0,
-    "evidence": "p.1"
+    "evidence": "page 1"
   },
   {
-    "q": "In the book Duel, what was the fencer who has the right-of-way awarded?",
+    "q": "What was awarded to the fencer who has the right-of-way?",
     "choices": [
       "The point",
-      "Priority (who attacked second)",
-      "Simultaneous (both get the point)",
-      "Initiative (defender decides)"
+      "A medal",
+      "Extra time",
+      "A redo of the action"
     ],
     "aIndex": 0,
-    "evidence": "p.1"
+    "evidence": "page 1"
   },
   {
-    "q": "In the book Duel, how many points did a fencer need to win the bout?",
+    "q": "How many points did a fencer need to win the bout?",
     "choices": [
       "Fifteen points",
-      "parry",
-      "riposte",
-      "lunge"
+      "Ten points",
+      "Twenty points",
+      "Five points"
     ],
     "aIndex": 0,
-    "evidence": "p.1"
+    "evidence": "page 1"
   },
   {
-    "q": "In the book Duel, what was the name of Lucy’s school?",
+    "q": "What was the name of Lucy’s school?",
     "choices": [
       "Butler Middle School",
-      "parry",
-      "riposte",
-      "lunge"
+      "Lincoln Middle School",
+      "Maple Grove School",
+      "Riverside School"
     ],
     "aIndex": 0,
-    "evidence": "p.2"
+    "evidence": "page 2"
   },
   {
-    "q": "In the book Duel, what can Lucy not believe she had to take on the first day of middle",
+    "q": "What could Lucy not believe she had to take on the first day of middle school?",
     "choices": [
-      "school? The bus",
-      "a notebook",
-      "a water bottle",
-      "a phone"
+      "The bus",
+      "Her backpack",
+      "The wrong bus",
+      "The carpool"
     ],
     "aIndex": 0,
-    "evidence": "p.2"
+    "evidence": "page 2"
   },
   {
-    "q": "In the book Duel, how did Lucy wish she could get to school on her first day?",
+    "q": "How did Lucy wish she could get to school on her first day?",
     "choices": [
-      "She wishes her mom could have driven her",
-      "parry",
-      "riposte",
-      "lunge"
+      "Her mom to drive her",
+      "Ride a bicycle",
+      "Walk with friends",
+      "Take a skateboard"
     ],
     "aIndex": 0,
-    "evidence": "p.2"
+    "evidence": "page 2"
+  },
+  {
+    "q": "What did Lucy think people were going to think of her for riding the bus?",
+    "choices": [
+      "That she’s a baby",
+      "That she’s the teacher’s pet",
+      "That she’s super cool",
+      "That she’s late"
+    ],
+    "aIndex": 0,
+    "evidence": "page 2"
+  },
+  {
+    "q": "When Lucy got off the bus on the first day of school, what did she imagine the school looked like?",
+    "choices": [
+      "A castle",
+      "A mansion",
+      "A museum",
+      "A maze"
+    ],
+    "aIndex": 0,
+    "evidence": "page 4"
+  },
+  {
+    "q": "What were the Hallway Etiquette rules at Lucy’s middle school?",
+    "choices": [
+      "No running, No swearing, No shouting and No eating",
+      "No walking, No talking, No smiling and No phones",
+      "No homework, No recess, No games and No snacks",
+      "No clubs, No sports, No music and No art"
+    ],
+    "aIndex": 0,
+    "evidence": "page 5"
+  },
+  {
+    "q": "Who did Lucy see in the hallway on her first day of middle school?",
+    "choices": [
+      "Sasha",
+      "GiGi",
+      "Mia",
+      "Anna"
+    ],
+    "aIndex": 0,
+    "evidence": "page 6"
+  },
+  {
+    "q": "What class was Sasha taking that is mostly 8th graders?",
+    "choices": [
+      "Drama",
+      "Science",
+      "Math",
+      "Art"
+    ],
+    "aIndex": 0,
+    "evidence": "page 7"
+  },
+  {
+    "q": "What clubs did Lucy tell Sasha she was thinking about joining on the first day of school?",
+    "choices": [
+      "Art club, Chess team and Choir",
+      "Drama, Fencing and Gardening",
+      "Robotics, Soccer and Debate",
+      "Cooking, Science and Book club"
+    ],
+    "aIndex": 0,
+    "evidence": "page 7"
+  },
+  {
+    "q": "What club did Sasha suggest Lucy join on the first day of school?",
+    "choices": [
+      "The fencing team",
+      "The basketball team",
+      "The chess club",
+      "The gardening club"
+    ],
+    "aIndex": 0,
+    "evidence": "page 7"
   }
 ]
