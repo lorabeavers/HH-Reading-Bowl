@@ -823,5 +823,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 77"
+  },
+ {
+    "q": "In American fencing, the styles are primarily of what origins?",
+    "choices": [
+      "French and Italian",
+      "German and Spanish",
+      "Greek and Roman",
+      "English and Dutch"
+    ],
+    "aIndex": 0,
+    "evidence": "page 81"
+  },
+  {
+    "q": "What does allez mean in French?",
+    "choices": [
+      "Go!",
+      "Stop!",
+      "Ready!",
+      "Fight!"
+    ],
+    "aIndex": 0,
+    "evidence": "page 81"
+  },
+  {
+    "q": "What was the name of Lucy’s math teacher?",
+    "choices": [
+      "Mr. Madsen",
+      "Mrs. Pearson",
+      "Mr. Sweet",
+      "Mr. Ticen"
+    ],
+    "aIndex": 0,
+    "evidence": "page 83"
+  },
+  {
+    "q": "What did Sasha’s uncle do instead of going to college?",
+    "choices": [
+      "Joined the circus",
+      "Joined the army",
+      "Became a chef",
+      "Moved abroad"
+    ],
+    "aIndex": 0,
+    "evidence": "page 84"
+  },
+  {
+    "q": "What did Sasha overhear while walking through the 8th grade hall?",
+    "choices": [
+      "They are taking bets on who will win between Lucy and GiGi",
+      "A math test was cancelled",
+      "A new student is transferring",
+      "The cafeteria is serving pizza"
+    ],
+    "aIndex": 0,
+    "evidence": "page 88"
+  },
+  {
+    "q": "What did the 7th graders think GiGi has to win the fencing bout?",
+    "choices": [
+      "A secret samurai sword",
+      "A magic wand",
+      "A black belt",
+      "A hidden dagger"
+    ],
+    "aIndex": 0,
+    "evidence": "page 88"
+  },
+  {
+    "q": "What did Lucy think was the meanest thing GiGi had ever done?",
+    "choices": [
+      "She pantsed Lucy at Grandma’s birthday party",
+      "She stole her lunch",
+      "She tore up her homework",
+      "She ignored her at school"
+    ],
+    "aIndex": 0,
+    "evidence": "page 90"
+  },
+  {
+    "q": "How old was Lucy’s grandmother turning at the birthday party where Lucy was pantsed?",
+    "choices": [
+      "59",
+      "60",
+      "55",
+      "65"
+    ],
+    "aIndex": 0,
+    "evidence": "page 90"
+  },
+  {
+    "q": "What did GiGi and their cousins chant after Lucy was pantsed?",
+    "choices": [
+      "Baby Butt",
+      "Crybaby",
+      "Loser Lucy",
+      "Little Sister"
+    ],
+    "aIndex": 0,
+    "evidence": "page 90"
+  },
+  {
+    "q": "In fencing, what does advance mean?",
+    "choices": [
+      "The act of taking one step toward your opponent",
+      "Retreating one step",
+      "Changing weapons",
+      "Moving sideways"
+    ],
+    "aIndex": 0,
+    "evidence": "page 95"
+  },
+  {
+    "q": "What did Lucy do when GiGi ran into her room to find their dad’s book?",
+    "choices": [
+      "She kicked a hole in the door by accident",
+      "She threw the book out the window",
+      "She gave it back immediately",
+      "She hid it under her bed"
+    ],
+    "aIndex": 0,
+    "evidence": "page 103"
+  },
+  {
+    "q": "When Lucy and GiGi were fighting over their dad’s lost book, what did Lucy say that hurt GiGi?",
+    "choices": [
+      "That their dad loved Lucy more than GiGi",
+      "That GiGi was a terrible fencer",
+      "That GiGi was lazy",
+      "That GiGi wasn’t smart"
+    ],
+    "aIndex": 0,
+    "evidence": "page 100"
+  },
+  {
+    "q": "What is the second basic move in fencing footwork?",
+    "choices": [
+      "The retreat",
+      "The advance",
+      "The lunge",
+      "The parry"
+    ],
+    "aIndex": 0,
+    "evidence": "page 109"
+  },
+  {
+    "q": "In fencing, what is the key to avoiding being easily hit?",
+    "choices": [
+      "Maintaining the right distance",
+      "Moving as fast as possible",
+      "Switching weapons often",
+      "Distracting the opponent"
+    ],
+    "aIndex": 0,
+    "evidence": "page 109"
+  },
+  {
+    "q": "What fruit symbol was on Mrs. Jones’s laptop?",
+    "choices": [
+      "A pear",
+      "An apple",
+      "A banana",
+      "A grape"
+    ],
+    "aIndex": 0,
+    "evidence": "page 110"
   }
 ]
