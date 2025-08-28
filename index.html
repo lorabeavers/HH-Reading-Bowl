@@ -30,6 +30,8 @@
   .progress{height:8px;background:#e6eefc;border-radius:6px;overflow:hidden;margin-top:8px}
   .progress>i{display:block;height:100%;background:var(--accent);width:0%}
   .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+  /* Make disabled install button look disabled until browser enables it */
+  #installBtn[disabled]{opacity:.45;pointer-events:none}
 </style>
 </head>
 <body>
@@ -37,7 +39,8 @@
     <header>
       <h1>Reading Bowl Flashcards</h1>
       <div class="toolbar">
-        <button class="btn ghost" id="installBtn" aria-label="Install app">Install</button>
+        <!-- disabled by default; enabled when beforeinstallprompt fires -->
+        <button class="btn ghost" id="installBtn" aria-label="Install app" disabled>Install</button>
         <button class="btn ghost" onclick="showMenu()" aria-label="Back to books">Books</button>
       </div>
     </header>
@@ -59,6 +62,10 @@
         </div>
         <h2 id="qText" style="margin:.25rem 0 .25rem 0;font-size:1.2rem">Question</h2>
         <div id="choices" class="choices"></div>
+
+        <!-- NEW: Evidence line (hidden until reveal) -->
+        <div id="evidence" class="meta" style="display:none; margin-top:6px"></div>
+
         <div class="progress"><i id="bar"></i></div>
         <div style="display:flex;gap:8px;margin-top:10px">
           <button class="btn" id="nextBtn">Next</button>
@@ -77,7 +84,7 @@ const BOOKS = [
     {q:"What must you first learn when beginning foil training?", choices:["Right-of-way","How to run fast","How to tie shoes","How to swim"], aIndex:0, hint:"Who can score.", evidence:"p.1"},
     {q:"What is right-of-way in fencing?", choices:["The first person to establish a valid threat to the opponent's target area","Who brought snacks","Who is taller","Who has the fastest footwork"], aIndex:0, hint:"Decides a simultaneous hit.", evidence:"p.1"},
     {q:"How many points does a fencer need to win the bout?", choices:["Fifteen","Ten","Twenty","Five"], aIndex:0, hint:"Common total.", evidence:"p.1"},
-    {q:"What is the name of Lucy's school?", choices:["Butler Middle School","Lincoln Middle School","Maple Grove School","Riverside School"], aIndex:0, hint:"p.2"},
+    {q:"What is the name of Lucy's school?", choices:["Butler Middle School","Lincoln Middle School","Maple Grove School","Riverside School"], aIndex:0, hint:"p.2", evidence:"p.2"},
     {q:"What did Lucy not believe she had to take on the first day of middle school?", choices:["The bus","Her backpack","Her lunch","The wrong bus"], aIndex:0, hint:"Embarrassing.", evidence:"p.2"},
     {q:"How did Lucy wish she could get to school on her first day?", choices:["Her mom drive her","Take a skateboard","Walk with friends","Ride a bicycle"], aIndex:0, hint:"Wants a familiar escort.", evidence:"p.2"},
     {q:"What did Lucy think people would think of her for riding the bus?", choices:["That she's a baby","That she's the teacher's pet","That she's super cool","That she's late"], aIndex:0, hint:"Feels younger.", evidence:"p.2"},
@@ -96,7 +103,9 @@ const BOOKS = [
 ];
 
 /* ------- State & UI ------- */
-let state = { bookIndex:0, order:[], pos:0, score:0 };
+/* NEW: peeked flag prevents scoring after Show Answer */
+let state = { bookIndex:0, order:[], pos:0, score:0, peeked:false };
+
 const menuView = document.getElementById('menuView');
 const quizView = document.getElementById('quizView');
 const booksList = document.getElementById('booksList');
@@ -105,6 +114,7 @@ const choicesDiv = document.getElementById('choices');
 const bar = document.getElementById('bar');
 const scoreEl = document.getElementById('score');
 const bookLabel = document.getElementById('bookLabel');
+const evidenceEl = document.getElementById('evidence');
 
 function showMenu(){
   menuView.classList.remove('hidden');
@@ -126,7 +136,7 @@ function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.rand
 function startBook(i){
   const book = BOOKS[i];
   if(!book.cards || book.cards.length===0){ alert('No cards yet for '+book.title); return; }
-  state.bookIndex=i; state.order=[...Array(book.cards.length).keys()]; shuffle(state.order); state.pos=0; state.score=0;
+  state.bookIndex=i; state.order=[...Array(book.cards.length).keys()]; shuffle(state.order); state.pos=0; state.score=0; state.peeked=false;
   menuView.classList.add('hidden'); quizView.classList.remove('hidden'); render();
 }
 
@@ -134,6 +144,12 @@ function render(){
   const book = BOOKS[state.bookIndex];
   const idx = state.order[state.pos];
   const card = book.cards[idx];
+
+  // reset peek/evidence each time we render a new card
+  state.peeked = false;
+  evidenceEl.style.display = 'none';
+  evidenceEl.textContent = '';
+
   bookLabel.textContent = `Book ${state.bookIndex+1}: ${book.title} — Card ${state.pos+1}/${state.order.length}`;
   qText.textContent = card.q;
   choicesDiv.innerHTML='';
@@ -149,36 +165,87 @@ function render(){
 }
 
 function onPick(choiceIndex, btn, card){
-  const buttons = Array.from(choicesDiv.children); buttons.forEach(b=> b.disabled=true);
-  if(choiceIndex===card.aIndex){ btn.classList.add('correct'); state.score++; }
-  else{
+  const buttons = Array.from(choicesDiv.children);
+  buttons.forEach(b=> b.disabled=true);
+
+  const correct = (choiceIndex===card.aIndex);
+  // NEW: only award point if not peeked first
+  if (correct && !state.peeked) { state.score++; }
+
+  if(correct){
+    btn.classList.add('correct');
+  } else {
     btn.classList.add('incorrect');
     buttons.forEach(b=>{ if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct'); });
   }
   scoreEl.textContent='Score: '+state.score;
+
+  // NEW: show evidence when an answer is revealed
+  if (card.evidence){
+    evidenceEl.textContent = `Evidence: ${card.evidence}`;
+    evidenceEl.style.display = 'flex';
+  }
 }
 
 document.getElementById('nextBtn').onclick=()=>{
   const book = BOOKS[state.bookIndex];
   if(state.pos < state.order.length-1) state.pos++;
-  else{ alert(`All done! Score: ${state.score}/${state.order.length}`); state.pos=0; state.score=0; shuffle(state.order); }
+  else{
+    alert(`All done! Score: ${state.score}/${state.order.length}`);
+    state.pos=0; state.score=0; shuffle(state.order);
+  }
   render();
 };
+
 document.getElementById('showBtn').onclick=()=>{
-  const book = BOOKS[state.bookIndex]; const idx=state.order[state.pos]; const card=book.cards[idx];
-  Array.from(choicesDiv.children).forEach(b=>{ if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct'); });
+  const book = BOOKS[state.bookIndex];
+  const idx=state.order[state.pos];
+  const card=book.cards[idx];
+
+  // highlight the correct answer
+  Array.from(choicesDiv.children).forEach(b=>{
+    if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct');
+  });
+
+  // NEW: mark that we peeked, so no point on this card
+  state.peeked = true;
+
+  // NEW: show evidence on peek
+  if (card.evidence){
+    evidenceEl.textContent = `Evidence: ${card.evidence}`;
+    evidenceEl.style.display = 'flex';
+  }
 };
-document.getElementById('shuffleBtn').onclick=()=>{ shuffle(state.order); state.pos=0; state.score=0; render(); };
+
+document.getElementById('shuffleBtn').onclick=()=>{
+  shuffle(state.order); state.pos=0; state.score=0; state.peeked=false; render();
+};
 
 /* ------- PWA install prompt ------- */
+const installBtn = document.getElementById('installBtn');
 let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').disabled=false; });
-document.getElementById('installBtn').onclick=async()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; };
+
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  installBtn.disabled=false; // enable button only when install is supported
+});
+
+installBtn.addEventListener('click', async ()=>{
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  installBtn.disabled=true; // optional: disable again after attempt
+});
 
 /* ------- Service worker ------- */
-if('serviceWorker' in navigator){ window.addEventListener('load',()=> navigator.serviceWorker.register('./sw.js')); }
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=> navigator.serviceWorker.register('./sw.js'));
+}
 
 showMenu();
 </script>
 </body>
 </html>
+
