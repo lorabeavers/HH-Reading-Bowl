@@ -33,23 +33,13 @@
   .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
   /* Switch */
-  .switch{
-    display:inline-flex; align-items:center; gap:.5rem; user-select:none;
-    font-size:.95rem; color:var(--muted);
-  }
+  .switch{display:inline-flex;align-items:center;gap:.5rem;user-select:none;font-size:.95rem;color:var(--muted)}
   .switch input{display:none}
-  .track{
-    width:44px; height:24px; border-radius:999px; background:#e5e7eb; position:relative; border:2px solid #d1d5db;
-    transition:background .2s ease,border-color .2s ease;
-  }
-  .thumb{
-    position:absolute; top:50%; left:2px; transform:translateY(-50%);
-    width:18px; height:18px; border-radius:999px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.15);
-    transition:left .2s ease;
-  }
-  input:checked + .track{ background:#c7d2fe; border-color:#93c5fd }
-  input:checked + .track .thumb{ left:22px }
-  .modeLabel{font-weight:600; color:var(--accent)}
+  .track{width:44px;height:24px;border-radius:999px;background:#e5e7eb;position:relative;border:2px solid #d1d5db;transition:background .2s,border-color .2s}
+  .thumb{position:absolute;top:50%;left:2px;transform:translateY(-50%);width:18px;height:18px;border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.15);transition:left .2s}
+  input:checked + .track{background:#c7d2fe;border-color:#93c5fd}
+  input:checked + .track .thumb{left:22px}
+  .modeLabel{font-weight:600;color:var(--accent)}
 </style>
 </head>
 <body>
@@ -65,6 +55,8 @@
           <input type="checkbox" id="switchShuffle" role="switch" aria-checked="false" aria-label="Shuffled mode">
           <span class="track"><i class="thumb"></i></span>
         </label>
+
+        <button class="btn ghost" id="resetBtn" title="Clear saved progress">Reset Progress</button>
       </div>
     </header>
 
@@ -93,7 +85,7 @@
         <div style="display:flex;gap:8px;margin-top:10px">
           <button class="btn" id="nextBtn">Next</button>
           <button class="btn ghost" id="showBtn">Show Answer</button>
-          <!-- (Shuffle Deck button removed as requested) -->
+          <!-- Shuffle Deck button intentionally removed -->
         </div>
       </div>
     </section>
@@ -113,6 +105,8 @@ const BOOKS = [
   { id:9, title:"Book Nine", cards:[] },
   { id:10, title:"Book Ten", cards:[] }
 ];
+
+const STORAGE_KEY = 'rb-progress-v1'; // bump if you change save shape
 
 async function loadDuel() {
   try{
@@ -140,8 +134,63 @@ const evidenceEl = document.getElementById('evidence');
 
 const switchShuffle = document.getElementById('switchShuffle');
 const modeText = document.getElementById('modeText');
+const resetBtn = document.getElementById('resetBtn');
 
-/* ========= Helpers ========= */
+/* ========= Progress Save/Load ========= */
+function saveProgress(){
+  try {
+    const progress = {
+      bookIndex: state.bookIndex,
+      order: state.order,
+      pos: state.pos,
+      score: state.score,
+      ordered: state.ordered,
+      // lightweight guard so we don't restore into a different deck by accident
+      deckTitle: BOOKS[state.bookIndex]?.title || '',
+      deckLength: BOOKS[state.bookIndex]?.cards?.length || 0
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch(e){ console.warn('saveProgress failed', e); }
+}
+
+function clearProgress(){
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+function tryLoadProgress(){
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if(!saved) return false;
+  try{
+    const p = JSON.parse(saved);
+    const deck = BOOKS[p.bookIndex];
+    if(!deck || !Array.isArray(deck.cards) || deck.cards.length === 0) return false;
+    if (p.deckTitle !== deck.title || p.deckLength !== deck.cards.length) return false;
+
+    state.bookIndex = p.bookIndex;
+    state.order = Array.isArray(p.order) && p.order.length === deck.cards.length
+      ? p.order
+      : [...Array(deck.cards.length).keys()];
+    state.pos = Math.min(Math.max(0, p.pos|0), deck.cards.length-1);
+    state.score = Math.max(0, p.score|0);
+    state.ordered = !!p.ordered;
+
+    // reflect switch UI
+    switchShuffle.checked = !state.ordered;
+    switchShuffle.setAttribute('aria-checked', switchShuffle.checked ? 'true' : 'false');
+    modeText.textContent = switchShuffle.checked ? 'Shuffled' : 'Ordered';
+
+    // go straight into quiz where they left off
+    menuView.classList.add('hidden');
+    quizView.classList.remove('hidden');
+    render();
+    return true;
+  }catch(e){
+    console.warn('Bad progress data, ignoring', e);
+    return false;
+  }
+}
+
+/* ========= UI helpers ========= */
 function showMenu(){
   menuView.classList.remove('hidden');
   quizView.classList.add('hidden');
@@ -176,6 +225,8 @@ function startBook(i){
   state.score = 0;
   state.peeked = false;
 
+  saveProgress();
+
   menuView.classList.add('hidden');
   quizView.classList.remove('hidden');
   render();
@@ -195,7 +246,7 @@ function render(){
   choicesDiv.innerHTML='';
 
   const opts = card.choices.map((c,i)=>({i,c}));
-  shuffle(opts); // Always shuffle choice positions
+  shuffle(opts); // shuffle choice positions every render
   opts.forEach(({i,c})=>{
     const btn=document.createElement('button');
     btn.className='choice'; btn.textContent=c;
@@ -228,6 +279,8 @@ function onPick(choiceIndex, btn, card){
     evidenceEl.textContent = `Evidence: ${card.evidence}`;
     evidenceEl.style.display = 'flex';
   }
+
+  saveProgress();
 }
 
 /* ========= Controls ========= */
@@ -242,6 +295,7 @@ document.getElementById('nextBtn').onclick=()=>{
     state.order=[...Array(book.cards.length).keys()];
     if(!state.ordered) shuffle(state.order);
   }
+  saveProgress();
   render();
 };
 
@@ -260,21 +314,32 @@ document.getElementById('showBtn').onclick=()=>{
     evidenceEl.textContent = `Evidence: ${card.evidence}`;
     evidenceEl.style.display = 'flex';
   }
+  // optional: don't change score on peek, just persist the peek state
+  saveProgress();
 };
 
-/* ========= Switch behavior ========= */
+/* ========= Switch & Reset ========= */
 // Off = Ordered; On = Shuffled
 switchShuffle.addEventListener('change', ()=>{
   state.ordered = !switchShuffle.checked ? true : false;
   switchShuffle.setAttribute('aria-checked', switchShuffle.checked ? 'true' : 'false');
   modeText.textContent = switchShuffle.checked ? 'Shuffled' : 'Ordered';
 
-  // If in a quiz, reseed immediately in the new mode
-  if (!menuView.classList.contains('hidden')) return; // still in menu
+  // If inside a quiz, reseed deck immediately in new mode
+  if (!menuView.classList.contains('hidden')) { saveProgress(); return; }
   const book = BOOKS[state.bookIndex];
   state.order=[...Array(book.cards.length).keys()];
   if(!state.ordered) shuffle(state.order);
-  state.pos=0; state.score=0; state.peeked=false; render();
+  state.pos=0; state.score=0; state.peeked=false;
+  saveProgress();
+  render();
+});
+
+resetBtn.addEventListener('click', ()=>{
+  if (confirm('Reset saved progress?')) {
+    clearProgress();
+    showMenu();
+  }
 });
 
 /* ========= PWA ========= */
@@ -283,7 +348,10 @@ if('serviceWorker' in navigator){
 }
 
 /* ========= Boot ========= */
-loadDuel().finally(showMenu);
+loadDuel().then(()=>{
+  // Try to restore last session; if none, show menu
+  if(!tryLoadProgress()) showMenu();
+});
 </script>
 </body>
 </html>
