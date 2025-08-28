@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Reading Bowl Flashcards</title>
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#2b6cb0" />
+<style>
+  :root{--bg:#f6f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--accent:#2b6cb0;--accent2:#2563eb;--good:#16a34a;--bad:#dc2626;--chip:#e2e8f0}
+  *{box-sizing:border-box} html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  body{background:var(--bg);color:var(--ink)}
+  .wrap{max-width:980px;margin:0 auto;padding:12px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+  h1{font-size:1.1rem;margin:0}
+  .btn{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;font-size:1rem}
+  .btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+  .grid{display:grid;gap:12px}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 8px 24px rgba(15,23,42,.06);padding:16px}
+  .bookItem{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:#f9fafb;border:2px solid transparent;cursor:pointer}
+  .bookItem:focus,.bookItem:hover{border-color:#dbeafe;outline:0}
+  .numBadge{min-width:36px;height:36px;border-radius:10px;background:var(--chip);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent2)}
+  .title{font-size:1.05rem}
+  .hidden{display:none}
+  .choices{display:grid;gap:10px;margin-top:12px}
+  .choice{background:#f1f5f9;border:2px solid transparent;border-radius:12px;padding:12px;cursor:pointer}
+  .choice.correct{background:#ecfdf5;border-color:rgba(22,163,74,.3)}
+  .choice.incorrect{background:#fef2f2;border-color:rgba(220,38,38,.25)}
+  .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.95rem;margin-top:4px}
+  .progress{height:8px;background:#e6eefc;border-radius:6px;overflow:hidden;margin-top:8px}
+  .progress>i{display:block;height:100%;background:var(--accent);width:0%}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Reading Bowl Flashcards</h1>
+      <div class="toolbar">
+        <button class="btn ghost" id="installBtn" aria-label="Install app">Install</button>
+        <button class="btn ghost" onclick="showMenu()" aria-label="Back to books">Books</button>
+      </div>
+    </header>
+
+    <!-- Book Menu -->
+    <section id="menuView" class="grid">
+      <div class="card">
+        <h2 style="margin:0 0 8px 0">Choose a book</h2>
+        <div id="booksList" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- Quiz View -->
+    <section id="quizView" class="hidden">
+      <div class="card">
+        <div class="meta">
+          <div id="bookLabel" aria-live="polite"></div>
+          <div id="score">Score: 0</div>
+        </div>
+        <h2 id="qText" style="margin:.25rem 0 .25rem 0;font-size:1.2rem">Question</h2>
+        <div id="choices" class="choices"></div>
+        <div class="progress"><i id="bar"></i></div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn" id="nextBtn">Next</button>
+          <button class="btn ghost" id="showBtn">Show Answer</button>
+          <button class="btn ghost" id="shuffleBtn">Shuffle</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script>
+/* ------- Data ------- */
+const BOOKS = [
+  { id:1, title:"Duel", cards:[
+    {q:"What are the three weapons used in the sport of fencing?", choices:["Foil, Épée, Sabre","Sword, Dagger, Pike","Rapier, Broadsword, Dagger","Foil, Sabre, Longsword"], aIndex:0, hint:"Official fencing weapons.", evidence:"p.1"},
+    {q:"What must you first learn when beginning foil training?", choices:["Right-of-way","How to run fast","How to tie shoes","How to swim"], aIndex:0, hint:"Who can score.", evidence:"p.1"},
+    {q:"What is right-of-way in fencing?", choices:["The first person to establish a valid threat to the opponent's target area","Who brought snacks","Who is taller","Who has the fastest footwork"], aIndex:0, hint:"Decides a simultaneous hit.", evidence:"p.1"},
+    {q:"How many points does a fencer need to win the bout?", choices:["Fifteen","Ten","Twenty","Five"], aIndex:0, hint:"Common total.", evidence:"p.1"},
+    {q:"What is the name of Lucy's school?", choices:["Butler Middle School","Lincoln Middle School","Maple Grove School","Riverside School"], aIndex:0, hint:"p.2"},
+    {q:"What did Lucy not believe she had to take on the first day of middle school?", choices:["The bus","Her backpack","Her lunch","The wrong bus"], aIndex:0, hint:"Embarrassing.", evidence:"p.2"},
+    {q:"How did Lucy wish she could get to school on her first day?", choices:["Her mom drive her","Take a skateboard","Walk with friends","Ride a bicycle"], aIndex:0, hint:"Wants a familiar escort.", evidence:"p.2"},
+    {q:"What did Lucy think people would think of her for riding the bus?", choices:["That she's a baby","That she's the teacher's pet","That she's super cool","That she's late"], aIndex:0, hint:"Feels younger.", evidence:"p.2"},
+    {q:"What did Lucy imagine her school looked like when she got off the bus?", choices:["A castle","A grocery store","A farm","A school bus"], aIndex:0, hint:"Grand, intimidating.", evidence:"p.4"},
+    {q:"What were the Hallway Etiquette rules at Lucy's middle school?", choices:["No running, No swearing, No shouting and No eating","No walking, No talking, No smiling and No phones","No homework, No recess, No games and No snacks","No clubs, No sports, No music and No art"], aIndex:0, hint:"Posted list.", evidence:"p.5"}
+  ]},
+  { id:2, title:"Book Two", cards:[]},
+  { id:3, title:"Book Three", cards:[]},
+  { id:4, title:"Book Four", cards:[]},
+  { id:5, title:"Book Five", cards:[]},
+  { id:6, title:"Book Six", cards:[]},
+  { id:7, title:"Book Seven", cards:[]},
+  { id:8, title:"Book Eight", cards:[]},
+  { id:9, title:"Book Nine", cards:[]},
+  { id:10, title:"Book Ten", cards:[]}
+];
+
+/* ------- State & UI ------- */
+let state = { bookIndex:0, order:[], pos:0, score:0 };
+const menuView = document.getElementById('menuView');
+const quizView = document.getElementById('quizView');
+const booksList = document.getElementById('booksList');
+const qText = document.getElementById('qText');
+const choicesDiv = document.getElementById('choices');
+const bar = document.getElementById('bar');
+const scoreEl = document.getElementById('score');
+const bookLabel = document.getElementById('bookLabel');
+
+function showMenu(){
+  menuView.classList.remove('hidden');
+  quizView.classList.add('hidden');
+  booksList.innerHTML = '';
+  BOOKS.forEach((b,i)=>{
+    const item = document.createElement('button');
+    item.className = 'bookItem';
+    item.setAttribute('aria-label','Open '+b.title);
+    // number in the grey badge ONLY, title without number
+    item.innerHTML = `<span class="numBadge">${i+1}</span><span class="title">${b.title}</span>`;
+    item.addEventListener('click',()=> startBook(i));
+    booksList.appendChild(item);
+  });
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } }
+
+function startBook(i){
+  const book = BOOKS[i];
+  if(!book.cards || book.cards.length===0){ alert('No cards yet for '+book.title); return; }
+  state.bookIndex=i; state.order=[...Array(book.cards.length).keys()]; shuffle(state.order); state.pos=0; state.score=0;
+  menuView.classList.add('hidden'); quizView.classList.remove('hidden'); render();
+}
+
+function render(){
+  const book = BOOKS[state.bookIndex];
+  const idx = state.order[state.pos];
+  const card = book.cards[idx];
+  bookLabel.textContent = `Book ${state.bookIndex+1}: ${book.title} — Card ${state.pos+1}/${state.order.length}`;
+  qText.textContent = card.q;
+  choicesDiv.innerHTML='';
+  const opts = card.choices.map((c,i)=>({i,c})); shuffle(opts);
+  opts.forEach(({i,c})=>{
+    const btn=document.createElement('button');
+    btn.className='choice'; btn.textContent=c;
+    btn.onclick=()=> onPick(i,btn,card);
+    choicesDiv.appendChild(btn);
+  });
+  scoreEl.textContent='Score: '+state.score;
+  bar.style.width = Math.round(state.pos/state.order.length*100) + '%';
+}
+
+function onPick(choiceIndex, btn, card){
+  const buttons = Array.from(choicesDiv.children); buttons.forEach(b=> b.disabled=true);
+  if(choiceIndex===card.aIndex){ btn.classList.add('correct'); state.score++; }
+  else{
+    btn.classList.add('incorrect');
+    buttons.forEach(b=>{ if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct'); });
+  }
+  scoreEl.textContent='Score: '+state.score;
+}
+
+document.getElementById('nextBtn').onclick=()=>{
+  const book = BOOKS[state.bookIndex];
+  if(state.pos < state.order.length-1) state.pos++;
+  else{ alert(`All done! Score: ${state.score}/${state.order.length}`); state.pos=0; state.score=0; shuffle(state.order); }
+  render();
+};
+document.getElementById('showBtn').onclick=()=>{
+  const book = BOOKS[state.bookIndex]; const idx=state.order[state.pos]; const card=book.cards[idx];
+  Array.from(choicesDiv.children).forEach(b=>{ if(b.textContent===card.choices[card.aIndex]) b.classList.add('correct'); });
+};
+document.getElementById('shuffleBtn').onclick=()=>{ shuffle(state.order); state.pos=0; state.score=0; render(); };
+
+/* ------- PWA install prompt ------- */
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').disabled=false; });
+document.getElementById('installBtn').onclick=async()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; };
+
+/* ------- Service worker ------- */
+if('serviceWorker' in navigator){ window.addEventListener('load',()=> navigator.serviceWorker.register('./sw.js')); }
+
+showMenu();
+</script>
+</body>
+</html>
