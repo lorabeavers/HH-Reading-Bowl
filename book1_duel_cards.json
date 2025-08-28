@@ -1318,5 +1318,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 159"
+  },
+ {
+    "q": "Why did Maddie think that GiGi tripped Lucy?",
+    "choices": [
+      "Because Lucy stole GiGi’s diary and told their mom what GiGi wrote",
+      "Because Lucy cut in the lunch line",
+      "Because Lucy bumped into her",
+      "Because Lucy borrowed her book"
+    ],
+    "aIndex": 0,
+    "evidence": "page 160"
+  },
+  {
+    "q": "What shameful secret did GiGi write in her diary that Lucy read?",
+    "choices": [
+      "That she hated her dad",
+      "That she cheated on a test",
+      "That she skipped practice",
+      "That she wanted to move away"
+    ],
+    "aIndex": 0,
+    "evidence": "page 161"
+  },
+  {
+    "q": "What were GiGi and Maddie doing when Mrs. Jones asked GiGi about her diary?",
+    "choices": [
+      "Picking out outfits for the first day of school",
+      "Doing homework together",
+      "Talking on the phone",
+      "Eating snacks"
+    ],
+    "aIndex": 0,
+    "evidence": "page 162"
+  },
+  {
+    "q": "How did Maddie hear what was written in GiGi’s diary?",
+    "choices": [
+      "She listened outside GiGi’s door",
+      "GiGi told her directly",
+      "Lucy showed her the diary",
+      "She found a note in class"
+    ],
+    "aIndex": 0,
+    "evidence": "page 168"
+  },
+  {
+    "q": "What picture did GiGi keep in her locker?",
+    "choices": [
+      "A picture of her and her dad",
+      "A picture of Lucy",
+      "A picture of Sasha",
+      "A picture of the school team"
+    ],
+    "aIndex": 0,
+    "evidence": "page 169"
+  },
+  {
+    "q": "What is it called when two fencers join blades in contact at proper distance?",
+    "choices": [
+      "To engage",
+      "A parry",
+      "A riposte",
+      "A salute"
+    ],
+    "aIndex": 0,
+    "evidence": "page 171"
+  },
+  {
+    "q": "What was taken away from Lucy in math class that she took off the teacher’s desk?",
+    "choices": [
+      "Her dad’s fencing book",
+      "Her notebook",
+      "Her lunch",
+      "Her phone"
+    ],
+    "aIndex": 0,
+    "evidence": "page 173"
+  },
+  {
+    "q": "What did Sasha feel like when she helped Lucy practice fencing?",
+    "choices": [
+      "A pirate",
+      "A queen",
+      "A teacher",
+      "A knight"
+    ],
+    "aIndex": 0,
+    "evidence": "page 174"
+  },
+  {
+    "q": "What did Lucy offer to help Sasha with in return for fencing practice?",
+    "choices": [
+      "Practicing her lines for the Fall play",
+      "Helping her with math",
+      "Carrying her books",
+      "Sharing her lunch"
+    ],
+    "aIndex": 0,
+    "evidence": "page 180"
+  },
+  {
+    "q": "In fencing, what does the motion of disengaging come from?",
+    "choices": [
+      "The fingers, not the wrist",
+      "The shoulders",
+      "The whole arm",
+      "The feet"
+    ],
+    "aIndex": 0,
+    "evidence": "page 187"
+  },
+  {
+    "q": "In common usage, what does disengage mean?",
+    "choices": [
+      "To stop being involved in something",
+      "To argue with someone",
+      "To hurry away",
+      "To start an activity"
+    ],
+    "aIndex": 0,
+    "evidence": "page 187"
+  },
+  {
+    "q": "What was Gran’s hair salon called?",
+    "choices": [
+      "Mercer Street Salon",
+      "Downtown Styles",
+      "Barbara’s Beauty",
+      "Salon Elegance"
+    ],
+    "aIndex": 0,
+    "evidence": "page 188"
+  },
+  {
+    "q": "What did Lucy’s mom suggest they do after leaving Gran’s hair salon?",
+    "choices": [
+      "Get ice cream before dinner",
+      "Go shopping",
+      "Visit the park",
+      "Go to the library"
+    ],
+    "aIndex": 0,
+    "evidence": "page 192"
+  },
+  {
+    "q": "Why did the sisters have to ride in the back seat of their mom’s car?",
+    "choices": [
+      "She didn’t have time to fix the front passenger seat belt",
+      "They were arguing",
+      "Their grandmother was in front",
+      "They had to share space with groceries"
+    ],
+    "aIndex": 0,
+    "evidence": "page 194"
+  },
+  {
+    "q": "What did Lucy’s family tease her father about on the way to the beach?",
+    "choices": [
+      "His smelly breath",
+      "His bad singing",
+      "His messy hair",
+      "His old car"
+    ],
+    "aIndex": 0,
+    "evidence": "page 200"
   }
 ]
