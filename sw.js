@@ -1,5 +1,5 @@
 // Force a brand-new cache version whenever you change this string
-const CACHE = 'rb-cards-v3';
+const CACHE = 'rb-cards-v4';
 
 // List core assets to guarantee offline & pass install checks
 const ASSETS = [
