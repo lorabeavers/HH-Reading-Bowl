@@ -1153,5 +1153,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 133"
+  },
+ {
+    "q": "What was the name of the choir teacher?",
+    "choices": [
+      "Mr. Ticen",
+      "Mr. Sweet",
+      "Mr. Madsen",
+      "Coach Leona"
+    ],
+    "aIndex": 0,
+    "evidence": "page 134"
+  },
+  {
+    "q": "What location did GiGi get for their duel?",
+    "choices": [
+      "The gym",
+      "The library",
+      "The cafeteria",
+      "The playground"
+    ],
+    "aIndex": 0,
+    "evidence": "page 135"
+  },
+  {
+    "q": "What was the name of the fencing coach?",
+    "choices": [
+      "Coach Leona",
+      "Mrs. Pearson",
+      "Mr. Sweet",
+      "Mr. Ticen"
+    ],
+    "aIndex": 0,
+    "evidence": "page 135"
+  },
+  {
+    "q": "What type of instructor was Lucy’s dad?",
+    "choices": [
+      "A fencing instructor",
+      "A music teacher",
+      "A math tutor",
+      "A drama coach"
+    ],
+    "aIndex": 0,
+    "evidence": "page 137"
+  },
+  {
+    "q": "How did GiGi explain they will have the duel without getting in trouble?",
+    "choices": [
+      "The coach thinks Lucy is trying out for the team",
+      "They would do it off school grounds",
+      "They would sneak in at night",
+      "They would keep it secret from everyone"
+    ],
+    "aIndex": 0,
+    "evidence": "page 135"
+  },
+  {
+    "q": "In fencing, what is a simple defensive action designed to deflect an attack?",
+    "choices": [
+      "The parry",
+      "The lunge",
+      "The advance",
+      "The riposte"
+    ],
+    "aIndex": 0,
+    "evidence": "page 143"
+  },
+  {
+    "q": "How many parries are in a foil?",
+    "choices": [
+      "Eight",
+      "Four",
+      "Six",
+      "Ten"
+    ],
+    "aIndex": 0,
+    "evidence": "page 143"
+  },
+  {
+    "q": "After GiGi confronts Lucy practicing in the choir room, what did she do?",
+    "choices": [
+      "Tells Mr. Ticen that Lucy is in his classroom",
+      "Encourages her to keep practicing",
+      "Challenges her immediately",
+      "Keeps it secret"
+    ],
+    "aIndex": 0,
+    "evidence": "page 141"
+  },
+  {
+    "q": "What punishment did Mr. Ticen give Lucy when he finds her in his classroom?",
+    "choices": [
+      "Detention",
+      "Extra homework",
+      "Suspension",
+      "Calling her mom"
+    ],
+    "aIndex": 0,
+    "evidence": "page 146"
+  },
+  {
+    "q": "Where was detention held?",
+    "choices": [
+      "The library",
+      "The gym",
+      "The cafeteria",
+      "The auditorium"
+    ],
+    "aIndex": 0,
+    "evidence": "page 147"
+  },
+  {
+    "q": "Why was Sasha not keeping a lookout for Lucy while she was practicing in the choir room?",
+    "choices": [
+      "She had to go to the bathroom",
+      "She was talking to friends",
+      "She forgot",
+      "She left school early"
+    ],
+    "aIndex": 0,
+    "evidence": "page 149"
+  },
+  {
+    "q": "In fencing, what is an offensive action with the intent of hitting one’s opponent?",
+    "choices": [
+      "The riposte",
+      "The parry",
+      "The advance",
+      "The retreat"
+    ],
+    "aIndex": 0,
+    "evidence": "page 155"
+  },
+  {
+    "q": "In everyday language, what does riposte mean?",
+    "choices": [
+      "A quick and witty reply to an insult",
+      "A sudden attack",
+      "A retreat",
+      "A dance step"
+    ],
+    "aIndex": 0,
+    "evidence": "page 155"
+  },
+  {
+    "q": "Which one of GiGi’s friends also wanted to try out for fencing captain?",
+    "choices": [
+      "Maddie",
+      "Sasha",
+      "Lucy",
+      "Damien Jo"
+    ],
+    "aIndex": 0,
+    "evidence": "page 158"
+  },
+  {
+    "q": "Who said they were going to make t-shirts for the duel?",
+    "choices": [
+      "Damien Jo",
+      "Maddie",
+      "Mr. Sweet",
+      "Coach Leona"
+    ],
+    "aIndex": 0,
+    "evidence": "page 159"
   }
 ]
