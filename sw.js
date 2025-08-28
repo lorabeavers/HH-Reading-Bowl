@@ -1,5 +1,5 @@
 // Force a brand-new cache version whenever you change this string
-const CACHE = 'rb-cards-v9';
+const CACHE = 'rb-cards-v10';
 
 // Core assets to guarantee offline & pass install checks
 // Include your deck JSON so it's available offline.
