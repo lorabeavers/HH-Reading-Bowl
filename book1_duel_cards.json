@@ -493,5 +493,170 @@
     ],
     "aIndex": 0,
     "evidence": "page 42"
+  },
+  {
+    "q": "Who did Principal Olney say the girls can talk to about their grief?",
+    "choices": [
+      "The school counselor",
+      "The principal",
+      "The school nurse",
+      "The librarian"
+    ],
+    "aIndex": 0,
+    "evidence": "page 45"
+  },
+  {
+    "q": "When did GiGi tell Lucy she can go against her in fencing?",
+    "choices": [
+      "In three weeks, after captain tryouts",
+      "The next day after school",
+      "This weekend at practice",
+      "At the end of the semester"
+    ],
+    "aIndex": 0,
+    "evidence": "page 48"
+  },
+  {
+    "q": "What did the sisters agree on after their meeting with the principal?",
+    "choices": [
+      "To not tell their mom about their fencing bout in three weeks",
+      "To quit the fencing team together",
+      "To apologize publicly in the cafeteria",
+      "To switch homerooms to avoid each other"
+    ],
+    "aIndex": 0,
+    "evidence": "page 51"
+  },
+  {
+    "q": "What is the proper en garde stance?",
+    "choices": [
+      "Front foot pointed forward, back foot about 2–3 feet apart at a 90° angle",
+      "Both feet together, knees locked, blade held straight up",
+      "Back foot pointed forward with feet touching and shoulders square",
+      "Feet parallel and wide, hands on hips to show readiness"
+    ],
+    "aIndex": 0,
+    "evidence": "page 53"
+  },
+  {
+    "q": "What does “en garde” mean in French?",
+    "choices": [
+      "On your guard",
+      "Begin",
+      "Good luck",
+      "Stop"
+    ],
+    "aIndex": 0,
+    "evidence": "page 53"
+  },
+  {
+    "q": "Who speaks the words “en garde” during fencing?",
+    "choices": [
+      "The referee",
+      "The team captain",
+      "The coach",
+      "The timekeeper"
+    ],
+    "aIndex": 0,
+    "evidence": "page 53"
+  },
+  {
+    "q": "What does “to be on guard” mean in fencing?",
+    "choices": [
+      "To be ready, poised for fighting either for attack or defense",
+      "To relax and reset between actions",
+      "To retreat to the end line",
+      "To end the bout immediately"
+    ],
+    "aIndex": 0,
+    "evidence": "page 53"
+  },
+  {
+    "q": "When was the last time Lucy picked up a foil?",
+    "choices": [
+      "When her dad was alive",
+      "Last summer at camp",
+      "Earlier that morning",
+      "She had never held one before"
+    ],
+    "aIndex": 0,
+    "evidence": "page 54"
+  },
+  {
+    "q": "Why couldn’t Sasha believe Lucy was going to fence GiGi?",
+    "choices": [
+      "She’s her sister, and GiGi is the best fencer in the school",
+      "Lucy is allergic to metal and can’t wear gear",
+      "Lucy is on the soccer team instead",
+      "GiGi doesn’t even attend the school anymore"
+    ],
+    "aIndex": 0,
+    "evidence": "page 55"
+  },
+  {
+    "q": "What was the name of Butler Middle School’s librarian?",
+    "choices": [
+      "Mrs. Pearson",
+      "Ms. Carter",
+      "Mr. Sweet",
+      "Mrs. Green"
+    ],
+    "aIndex": 0,
+    "evidence": "page 56"
+  },
+  {
+    "q": "What book did Sasha find that made her wonder why the library even has it?",
+    "choices": [
+      "Self‑defense with a cane",
+      "Advanced Archery for Teens",
+      "Ballet Basics for Beginners",
+      "Medieval Spear Fighting"
+    ],
+    "aIndex": 0,
+    "evidence": "page 56"
+  },
+  {
+    "q": "Why did the fencing book Sasha found in the library upset Lucy?",
+    "choices": [
+      "It’s the same book her dad had",
+      "Its cover was torn off",
+      "The author criticized schools",
+      "It was long overdue"
+    ],
+    "aIndex": 0,
+    "evidence": "page 57"
+  },
+  {
+    "q": "Why did Lucy think the man on the front of the fencing book looks ridiculous?",
+    "choices": [
+      "His pose isn’t how fencers really stand",
+      "He’s wearing a superhero cape",
+      "He’s holding two swords at once",
+      "He’s fencing in sandals"
+    ],
+    "aIndex": 0,
+    "evidence": "page 57"
+  },
+  {
+    "q": "How long ago were the origins of fencing recorded?",
+    "choices": [
+      "As early as the 12th century in Egypt",
+      "In the 5th century in Greece",
+      "In the 18th century in France",
+      "In the 3rd century in China"
+    ],
+    "aIndex": 0,
+    "evidence": "page 57"
+  },
+  {
+    "q": "When did fencing become an organized competitive sport?",
+    "choices": [
+      "The 19th century",
+      "The 16th century",
+      "The 17th century",
+      "The 20th century"
+    ],
+    "aIndex": 0,
+    "evidence": "page 57"
   }
 ]
